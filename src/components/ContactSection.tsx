@@ -14,18 +14,31 @@ const ContactSection = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast.success("Message sent! We'll get back to you shortly.");
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzWarArpBEYDlyAvYyEgGmrNdSXB1-SytS-0fjiGEgjMg_AuC3eIp_h_LLRLGJUjOnftw/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(form),
+        }
+      );
 
-    setForm({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+      toast.success("Message sent! We'll get back to you shortly.");
+
+      setForm({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -43,7 +56,6 @@ const ContactSection = () => {
         <div className="max-w-lg mx-auto">
           <form onSubmit={handleSubmit} className="space-y-5">
 
-            {/* Name */}
             <Input
               placeholder="Your Name *"
               value={form.name}
@@ -52,7 +64,6 @@ const ContactSection = () => {
               className="bg-secondary/50 border-border/50 h-12 focus:border-primary"
             />
 
-            {/* Company */}
             <Input
               placeholder="Company Name (Optional)"
               value={form.company}
@@ -60,7 +71,6 @@ const ContactSection = () => {
               className="bg-secondary/50 border-border/50 h-12 focus:border-primary"
             />
 
-            {/* Email */}
             <Input
               type="email"
               placeholder="Your Email *"
@@ -70,7 +80,6 @@ const ContactSection = () => {
               className="bg-secondary/50 border-border/50 h-12 focus:border-primary"
             />
 
-            {/* Phone */}
             <Input
               type="tel"
               placeholder="Contact Number *"
@@ -80,7 +89,6 @@ const ContactSection = () => {
               className="bg-secondary/50 border-border/50 h-12 focus:border-primary"
             />
 
-            {/* Message */}
             <Textarea
               placeholder="Tell us about your project *"
               value={form.message}
@@ -90,7 +98,6 @@ const ContactSection = () => {
               className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
             />
 
-            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="gradient" size="lg" type="submit" className="flex-1">
                 Send Message
@@ -113,6 +120,7 @@ const ContactSection = () => {
                 WhatsApp Us
               </Button>
             </div>
+
           </form>
         </div>
       </div>
