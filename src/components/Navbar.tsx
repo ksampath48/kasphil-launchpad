@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <a href="#" className="font-display text-xl font-bold text-gradient">
-          <img src="/kasphil-logo.png" alt="Kasphil Logo" className="h-16" />
+          <img src="/kasphil-logo.png" alt="Kasphil Logo" className="h-14" />
         </a>
 
         {/* Desktop */}
