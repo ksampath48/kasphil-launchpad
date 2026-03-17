@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <img src="/kasphil-logo.png" alt="Kasphil Logo" className="h-10 mb-2" />
+            <img src="/kasphil-logo.png" alt="Kasphil Logo" className="h-8 mb-2" />
             <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
               Websites & Automation That Grow Your Business.
             </p>
