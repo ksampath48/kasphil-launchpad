@@ -59,7 +59,7 @@ const ContactSection = () => {
                 size="lg"
                 type="button"
                 className="flex-1"
-                onClick={() => window.open("https://wa.me/", "_blank")}
+                onClick={() => window.open("https://wa.me/919014522375?text=Hi%20I%20want%20a%20website", "_blank")}
               >
                 <MessageCircle size={16} />
                 WhatsApp Us
